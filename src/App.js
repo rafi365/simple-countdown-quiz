@@ -1,39 +1,35 @@
 import React from 'react';
 import './App.css';
-var test = 10;
-  function add(){
-    test = test + 1;
-    alert(test)
-  };
+
 class App extends React.Component {
   constructor(props) {
     super(props);
     this.state = {hour: 0,minute: 0,second: 0};
   }
   increase_timer(x){
-    if (x == 1 && this.state.hour < 59) {
+    if (x === 1 && this.state.hour < 59) {
       this.setState({hour: this.state.hour + 1});
       
     }
-    else if (x == 2 && this.state.minute < 59) {
+    else if (x === 2 && this.state.minute < 59) {
       this.setState({minute: this.state.minute + 1});
       
     }
-    else if (x == 3 && this.state.second < 59) {
+    else if (x === 3 && this.state.second < 59) {
       this.setState({second: this.state.second + 1});
       
     }
   }
   decrease_timer(x){
-    if (x == 1 && this.state.hour > 0) {
+    if (x === 1 && this.state.hour > 0) {
       this.setState({hour: this.state.hour - 1});
       
     }
-    else if (x == 2 && this.state.minute > 0) {
+    else if (x === 2 && this.state.minute > 0) {
       this.setState({minute: this.state.minute - 1});
       
     }
-    else if (x == 3 && this.state.second > 0) {
+    else if (x === 3 && this.state.second > 0) {
       this.setState({second: this.state.second - 1});
       
     }
