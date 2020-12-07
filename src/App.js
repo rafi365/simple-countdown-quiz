@@ -42,6 +42,7 @@ class App extends React.Component {
         <div className="sideways">
         <div>
           {/* hour */}
+          <h3>Hour</h3>
           <button onClick={()=>{this.increase_timer(1)}}>up</button>
           <h3>{this.state.hour.toString().padStart(2,'0')}</h3>
           <button onClick={()=>{this.decrease_timer(1)}}>down</button>
@@ -50,6 +51,7 @@ class App extends React.Component {
         <div>
         
           {/* minutes */}
+          <h3>Minute</h3>
           <button onClick={()=>{this.increase_timer(2)}}>up</button>
           <h3>{this.state.minute.toString().padStart(2,'0')}</h3>
           <button onClick={()=>{this.decrease_timer(2)}}>down</button>
@@ -57,6 +59,7 @@ class App extends React.Component {
 
         <div>
           {/* seconds */}
+          <h3>Second</h3>
           <button onClick={()=>{this.increase_timer(3)}}>up</button>
           <h3>{this.state.second.toString().padStart(2,'0')}</h3>
           <button onClick={()=>{this.decrease_timer(3)}}>down</button>
