@@ -1,5 +1,18 @@
 import React from 'react';
+import Countdown from "react-countdown";
 import './App.css';
+
+
+const Completionist = () => <span>You are good to go!</span>;
+const renderer = ({ hours, minutes, seconds, completed }) => {
+  if (completed) {
+    // Render a completed state
+    return <Completionist />;
+  } else {
+    // Render a countdown
+    return <span>{hours}:{minutes}:{seconds}</span>;
+  }
+};
 
 class App extends React.Component {
   constructor(props) {
@@ -34,11 +47,16 @@ class App extends React.Component {
       
     }
   }
+
   
   render() {
     return (
       <div className="App">
         <h1>Simple timer</h1>
+        <Countdown
+    date={Date.now() + 5000}
+    renderer={renderer}
+  />
         <div className="sideways">
         <div>
           {/* hour */}
