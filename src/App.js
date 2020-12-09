@@ -1,6 +1,6 @@
 import React from 'react';
 import './App.css';
-
+var timer = 0;
 class App extends React.Component {
   constructor(props) {
     super(props);
@@ -35,11 +35,41 @@ class App extends React.Component {
     }
   }
 
-  
+  resettimer(){
+    this.setResetInterval(false);
+    this.setState({hour: 0});
+    this.setState({minute: 0});
+    this.setState({second: 0});
+  }
+
+  setResetInterval(bool){
+    var self = this;
+    if(bool){
+          timer = setInterval(function(){
+            if (self.state.second > 0){
+              self.decrease_timer(3);
+            }
+            else if(self.state.minute > 0){
+              self.decrease_timer(2);
+              self.setState({second: 59});
+            }
+            else if(self.state.hour > 0){
+              self.decrease_timer(1);
+              self.setState({minute: 59});
+            }
+            else{
+              clearInterval(timer);
+            }
+          },1000);
+    }else{
+      clearInterval(timer); 
+    }
+  }
+
   render() {
     return (
       <div className="App">
-        <h1>Simple timer</h1>
+        <h1>Simple Countdown Timer</h1>
 
         <div className="sideways">
         <div>
@@ -67,6 +97,10 @@ class App extends React.Component {
           <button onClick={()=>{this.decrease_timer(3)}}>down</button>
         </div>
         </div>
+        <br/>
+          <button onClick={()=>{this.setResetInterval(true)}}>Start</button>
+          <button onClick={()=>{this.setResetInterval(false)}}>Stop</button>
+          <button onClick={()=>{this.resettimer()}}>reset</button>
       </div>
     );
   }
