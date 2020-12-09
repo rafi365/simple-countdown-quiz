@@ -51,11 +51,11 @@ class App extends React.Component {
             }
             else if(self.state.minute > 0){
               self.decrease_timer(2);
-              self.setState({second: 59});
+              self.setState({second: 60});
             }
             else if(self.state.hour > 0){
               self.decrease_timer(1);
-              self.setState({minute: 59});
+              self.setState({minute: 60});
             }
             else{
               clearInterval(timer);
